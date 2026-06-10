@@ -153,18 +153,20 @@ async function submitInquiry() {
   }
 
   try {
-    const response = await fetch('/api/contracts/', {
+    const response = await fetch('/', {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify(payload),
+      body: new URLSearchParams({
+        'form-name': 'inquiry',
+        'bot-field': '',
+        ...payload,
+      }).toString(),
     })
-    const result = await response.json().catch(() => ({}))
 
     if (!response.ok) {
-      throw new Error(result.error || '提交失败，请稍后再试。')
+      throw new Error('提交失败，请稍后再试。')
     }
 
     submittedContact.value = contactName

@@ -3,6 +3,5 @@ __pycache__/
 *.py[cod]
 *.log
 db.sqlite3
-.env
 frontend/node_modules/
-.netlify/
+static/
