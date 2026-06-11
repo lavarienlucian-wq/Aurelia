@@ -4,5 +4,7 @@ __pycache__/
 *.log
 db.sqlite3
 .env
+/.tools/
+staticfiles/
 frontend/node_modules/
 .netlify/
